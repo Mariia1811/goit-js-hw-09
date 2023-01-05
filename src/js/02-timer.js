@@ -41,13 +41,13 @@ function onBtnClick() {
       refs.spanMinutesEl.textContent = time.minutes;
       refs.spanSecondsEl.textContent = time.seconds;
     } else {
+      Notify.success('Time is over =)');
       stop();
     }
   }, 1000);
 }
 
 function stop() {
-  Notify.success('Time is over =)');
   clearInterval(intervalId);
 }
 
