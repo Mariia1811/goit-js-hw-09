@@ -32,10 +32,8 @@ flatpickr('#datetime-picker', {
 
 function onBtnClick() {
   refs.btnEl.disabled = true;
-
+  const time = convertMs(userTime - Date.now());
   intervalId = setInterval(() => {
-    const time = convertMs(userTime - Date.now());
-
     if (userTime >= Date.now()) {
       refs.spanDayEl.textContent = time.days;
       refs.spanHoursEl.textContent = time.hours;
