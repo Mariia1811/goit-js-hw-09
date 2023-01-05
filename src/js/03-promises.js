@@ -8,6 +8,7 @@ let position = 1;
 
 function onFormSubmit(e) {
   e.preventDefault();
+  
   const amount = e.currentTarget.elements.amount.value;
   const stepDelay = +e.currentTarget.elements.step.value;
   delay = +e.currentTarget.elements.delay.value;
