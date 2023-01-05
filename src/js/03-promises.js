@@ -4,7 +4,7 @@ const formEl = document.querySelector('.form');
 formEl.addEventListener('submit', onFormSubmit);
 
 let delay = 0;
-let position = 0;
+let position = 1;
 
 function onFormSubmit(e) {
   e.preventDefault();
@@ -13,9 +13,6 @@ function onFormSubmit(e) {
   delay = +e.currentTarget.elements.delay.value;
 
   for (let i = 0; i < amount; i++) {
-    position += 1;
-    delay += stepDelay;
-
     createPromise({ position, delay })
       .then(resolve => {
         Notify.success(resolve);
@@ -23,10 +20,14 @@ function onFormSubmit(e) {
       .catch(reject => {
         Notify.failure(reject);
       });
+    delay += stepDelay;
+    position += 1;
   }
+  delay = 0;
+  position = 0;
 }
 
-function createPromise() {
+function createPromise({ position, delay }) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
 
