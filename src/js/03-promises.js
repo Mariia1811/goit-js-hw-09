@@ -24,7 +24,7 @@ function onFormSubmit(e) {
     position += 1;
   }
   delay = 0;
-  position = 0;
+  position = 1;
 }
 
 function createPromise({ position, delay }) {
