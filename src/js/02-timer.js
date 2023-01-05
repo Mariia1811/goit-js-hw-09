@@ -14,6 +14,7 @@ const refs = {
 refs.btnEl.addEventListener('click', onBtnClick);
 refs.btnEl.disabled = true;
 let userTime = new Date();
+let intervalId = null;
 
 flatpickr('#datetime-picker', {
   enableTime: true,
@@ -41,8 +42,8 @@ function onBtnClick() {
       refs.spanMinutesEl.textContent = time.minutes;
       refs.spanSecondsEl.textContent = time.seconds;
     } else {
-      Notify.success('Time is over =)');
       stop();
+      Notify.success('Time is over =)');
     }
   }, 1000);
 }
